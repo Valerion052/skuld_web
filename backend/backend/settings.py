@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
+    'load.apps.LoadConfig',
     'api.apps.ApiConfig',
     'rest_framework',
     'rest_framework.authtoken',
@@ -63,6 +64,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     },
     'DWH': {
+        'ENGINE': os.getenv('DB_ENGINE',
+                            default='django.db.backends.postgresql'),
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('USER'),
         'PASSWORD': os.getenv('PASSWORD'),
